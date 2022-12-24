@@ -62,36 +62,16 @@ int front(struct Queue *q) {
  
 int main ()
 {
-
-    struct Queue *q = createQueue(10);
+    struct Queue *q = createQueue(3);
     enqueue(q,1);
     enqueue(q,2);
-    enqueue(q,3);
-    enqueue(q,4);
-    enqueue(q,5);
-    enqueue(q,6);
-    enqueue(q,7);
-    enqueue(q,8);
-    enqueue(q,9);
     enqueue(q,10);
     enqueue(q,3);   // At this step OverFlow 
 
     dequeue(q);
     dequeue(q);
     dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
     dequeue(q);    // At this step UnderFlow
-    
-
-    // if (isEmpty(q)) {
-    //     printf("Queue is Empty");
-    // }
     
     return 0;
 }
