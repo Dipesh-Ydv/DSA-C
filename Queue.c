@@ -10,7 +10,7 @@ struct Queue {
 struct Queue *createQueue(unsigned capacity) {
     struct Queue *q = (struct Queue *)malloc(sizeof(struct Queue));
     q->capacity = capacity;
-    q->front = 0 ,q->rear = -1;
+    q->front = q->rear = -1;
     q->size = 0;
     q->arr = (int *)malloc(q->capacity * sizeof(int));
     return q;
@@ -40,48 +40,20 @@ void dequeue(struct Queue *q) {
         printf("Queue is already empty!\n");
         return;
     }
-    int item = q->arr[q->front];
     q->front = q->front + 1;
+    int item = q->arr[q->front];
     q->size = q->size - 1;
     printf("%d is dequeued from queue\n",item);
 }
 
-// int size()
-
 int main ()
 {
-    struct Queue *q = createQueue(10);
+    struct Queue *q = createQueue(3);
     enqueue(q, 1);
     enqueue(q, 2);
 
     dequeue(q);
     dequeue(q);
 
-    enqueue(q, 3);
-    enqueue(q, 4);
-    enqueue(q, 5);
-    enqueue(q, 6);
-    enqueue(q, 8);
-    enqueue(q, 9);
-    enqueue(q, 10);
-    enqueue(q, 11);
-    enqueue(q, 12);
-    
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-    dequeue(q);
-
-    // enqueue(q, 12);
-    // enqueue(q, 13);
-
-    if (isEmpty(q)) {
-        printf("Queue is empty\n");
-    }
     return 0;
 }
